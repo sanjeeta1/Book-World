@@ -27,5 +27,11 @@
         {
         return $q.reject('Error retrieving book(s). (HTTP status:'+response.status +')');
         }
+        function getBookByID(bookID){
+        return http({
+            method:'GET',
+             url:'api/books/'+bookID
+            }).then(sendResponseData).catch(sendGetBooksError);
+        }
         }
         }());
