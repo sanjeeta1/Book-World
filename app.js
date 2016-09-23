@@ -40,7 +40,20 @@ app.config(['booksProvider','$routeProvider',function(booksProvider,$routeProvid
                 controller: 'AddBookController',
                 controllerAs: 'addBook'
 
-            });
+            })
+            .when('/EditBook/:bookID',{
+                templateUrl:'/app/templates/editBook.html',
+                controller: 'EditBookController',
+                controllerAs:'bookEditor',
+                resolve:{
+                    books: function(dataService){
+                        return dataService.getAllBooks();
+                    }
+                }
+
+
+            })
+            .otherwise('/');
     }]
 );
 }());
