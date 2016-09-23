@@ -5,7 +5,9 @@
         return {
         
         getAllBooks:getAllBooks,
-        getAllReaders: getAllReaders
+        getAllReaders: getAllReaders,
+        getBookByID:  getBookByID,
+        updateBook: updateBook
         };
         function getAllBooks()
         {
