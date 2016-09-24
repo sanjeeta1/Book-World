@@ -1,0 +1,27 @@
+<h3>Edit Book</h3>
+<form>
+<div class="form-group">
+<label for="bookTitle">Title</label>
+<div>
+<input ng-model="bookEditor.currentBook.title" type="text" id="bookTitle" placeholder="Title">
+</div>
+</div>
+<div class="form-group">
+<label for="bookAuthor">Author</label>
+<div>
+<input ng-model="bookEditor.currentBook.author" type="text" id="bookAuthor" placeholder="Author">
+</div>
+</div>
+<div class="form-group">
+<label for="bookPublished">Year</label>
+<div>
+<input ng-model="bookEditor.currentBook.yearPublished" type="text" id="bookPublished" placeholder="Year">
+</div>
+</div>
+<div class="form-group">
+<div>
+<button>Save</button>
+<button ng-click="bookEditor.setAsFavorite()">Set as Favorite</button>
+</div>
+</div>
+</form>
