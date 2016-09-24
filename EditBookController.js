@@ -1,6 +1,6 @@
 (function(){
 angular.module('app').controller('EditBookController',
-['$routeParams', 'books','$cookies','$cookieStore',
+['$routeParams', 'books','$cookies','$cookieStore','dataService','$log','$location',EditBookController]);
 
 function EditBookController($routeParams, books, $cookies,$cookieStore){
 var vm = this;
