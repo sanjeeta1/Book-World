@@ -35,5 +35,23 @@
              url:'api/books/'+bookID
             }).then(sendResponseData).catch(sendGetBooksError);
         }
+        function addBook(newBook)
+        {
+            return $http({
+                method: 'POST',
+                url: 'api/books',
+                data: newBook
+            })
+            .then(addBookSuccess).catch(addBookError);
         }
+        function addBookSuccess(response){
+            return 'Book added: ' +response.config.data.title;
+        }
+        function addBookError(response)
+        {
+            return $q.reject('Error adding book. (HTTP status: '+response.status+ ')');
+        }
+        
+        }
+        
         }());
