@@ -38,18 +38,14 @@ app.config(['booksProvider','$routeProvider',function(booksProvider,$routeProvid
             .when('/AddBook',{
                 templateUrl:'/app/templates/addBook.html',
                 controller: 'AddBookController',
-                controllerAs: 'addBook'
+                controllerAs: 'bookAdder'
 
             })
             .when('/EditBook/:bookID',{
                 templateUrl:'/app/templates/editBook.html',
                 controller: 'EditBookController',
                 controllerAs:'bookEditor',
-                resolve:{
-                    books: function(dataService){
-                        return dataService.getAllBooks();
-                    }
-                }
+                
 
 
             })
