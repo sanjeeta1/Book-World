@@ -8,7 +8,8 @@
         getAllReaders: getAllReaders,
         getBookByID:  getBookByID,
         updateBook: updateBook,
-        addBook: addBook
+        addBook: addBook,
+        deleteBook: deleteBook
         };
         function getAllBooks()
         {
