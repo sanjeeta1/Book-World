@@ -60,6 +60,21 @@
         {
             return $q.reject('Error updating book.(HTTP status: '+response.status + ')');
         }
+        function deleteBook(bookID)
+        {
+            return $http({
+                method: 'DELETE',
+                url: 'api/books/' + bookID
+            }).then(deleteBookSuccess).catch(deleteBookError);
+        }
+        function deleteBookSuccess(response)
+        {
+            return 'Book deleted.';
+        }
+        function deleteBookError(response)
+        {
+            return $q.reject('Error deleting book.(HTTP status: '+response.status+ ')');
+        }
         }
         
         }());
