@@ -31,10 +31,7 @@
         return $q.reject('Error retrieving book(s). (HTTP status:'+response.status +')');
         }
         function getBookByID(bookID){
-        return http({
-            method:'GET',
-             url:'api/books/'+bookID
-            }).then(sendResponseData).catch(sendGetBooksError);
+        return $http.get('api/books/'+bookID).then(sendResponseData).catch(sendGetBooksError);
         }
         function addBook(newBook)
         {
@@ -52,7 +49,21 @@
         {
             return $q.reject('Error adding book. (HTTP status: '+response.status+ ')');
         }
-        
+        function updateBook(book)
+        {
+          return $http({
+                method: 'PUT',
+                url:'api/books/' +book.book_id,
+                data:book }).then(updateBookSuccess).catch(updateBookError);
+        }
+        function updateBookSuccess(response)
+        {
+            return 'Book updated:'+response.config.data.title;
+        }
+         function updateBookError(response)
+        {
+            return $q.reject('Error updating book.(HTTP status: '+response.status + ')');
+        }
         }
         
         }());
