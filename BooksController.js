@@ -1,8 +1,8 @@
 (function(){
 
-   angular.module('app').controller('BooksController',['books','dataService','badgeService','$cookies','$cookieStore','$log',BooksController]);
+   angular.module('app').controller('BooksController',['books','dataService','badgeService','$cookies','$cookieStore','$log','$route',BooksController]);
 
-    function BooksController($q,books,dataService,badgeService,$cookies,$cookieStore,$log)
+    function BooksController($q,books,dataService,badgeService,$cookies,$cookieStore,$log,$route)
     {
         var vm = this;
         vm.appName = books.appName;
@@ -31,9 +31,22 @@
         {
         vm.allReaders = readers;
         }
-        function getAllReadersComplete(readers){
+        function getAllReadersComplete(){
         
         }
+       vm.deleteBook = function(bookID)
+       {
+          dataService.deleteBook(bookID).then(deleteBookSuccess).catch(deleteBookError);
+       };
+       function deleteBookSuccess(message)
+       {
+          $log.info(message);
+          $route.reload();
+       }
+        function deleteBookError(errmessage)
+       {
+          $log.error(errmessage);
+       }
         vm.getBadge = badgeService.retrieveBadge;
         vm.favoriteBook = $cookies.favoriteBook;
         vm.lastEdited = $cookieStore.get('lastEdited');
