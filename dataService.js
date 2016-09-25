@@ -35,11 +35,7 @@
         }
         function addBook(newBook)
         {
-            return $http({
-                method: 'POST',
-                url: 'api/books',
-                data: newBook
-            })
+            return $http.post('api/books',newBook)
             .then(addBookSuccess).catch(addBookError);
         }
         function addBookSuccess(response){
